@@ -1,2 +1,2 @@
-Name: Nishanath Chethiya
+Name: Nishanath Chethiya \
 Email: chethiyanishanath@gmail.com
