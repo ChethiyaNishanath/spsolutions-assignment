@@ -1,5 +1,6 @@
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 
 public class ProblemSolving {
@@ -98,6 +99,25 @@ public class ProblemSolving {
         return fibonacciSeries;
     }
 
+    ///////////////////////////////////////////
+    // Problem 4
+    private int highestPossibleNumber(List<String> list) {
+
+        if (list == null || list.isEmpty()) {
+            throw new IllegalArgumentException("List cannot be null or empty");
+        }
+        
+        int highestPossibleNumber = 0;
+        Collections.sort(list, Collections.reverseOrder());
+        StringBuilder sb = new StringBuilder();
+        for(String s : list) {
+            sb.append(s);
+        }
+        highestPossibleNumber = Integer.parseInt(sb.toString());
+
+        return highestPossibleNumber;
+    }
+
     public static void main(String[] args) {
 
         // Problem 1 execution
@@ -139,6 +159,17 @@ public class ProblemSolving {
          // problem 3 execution
         List<Long> fibonacciSeris = getFibonacciSeries(100);
         System.out.println(fibonacciSeris);
+
+        // problem 4 execution
+        List<String> numberList = new ArrayList<>();
+        numberList.add("50");
+        numberList.add("2");
+        numberList.add("1");
+        numberList.add("9");
+
+        ProblemSolving ps = new ProblemSolving();
+        int highestNumber = ps.highestPossibleNumber(numberList);
+        System.out.println(highestNumber);
 
     }
 }
