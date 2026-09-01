@@ -47,6 +47,37 @@ public class ProblemSolving {
         return list.get(index) + sumByRecursion(list, index+1);
     }
 
+
+    ///////////////////////////////////////////
+    // Problem 2
+    private static List<String> combineTwoLists(List<String> list1, List<String> list2) {
+
+        if (list1 == null || list1.isEmpty() || list2 == null || list2.isEmpty()) {
+            throw new IllegalArgumentException("Lists cannot be null or empty");
+        }
+
+        List<String> combined = new ArrayList<>();
+
+        int maxSize;
+
+        if(list1.size() < list2.size()) {
+            maxSize = list2.size();
+        }else {
+            maxSize = list1.size();
+        }
+
+        for(int i = 0; i < maxSize ; i++) {
+            if(list1.size() > i && list1.get(i) != null) {
+                combined.add(list1.get(i));
+            }
+            if(list2.size() > i && list2.get(i) != null) {
+                combined.add(list2.get(i));
+            }
+        }
+
+        return combined;
+    }
+
     public static void main(String[] args) {
 
         // Problem 1 execution
@@ -66,6 +97,24 @@ public class ProblemSolving {
 
         int sumByRecursion = sumByRecursion(nums, 0);
         System.out.println("Sum: "+sumByRecursion);
+
+
+        
+        // Problem 2 execution
+        List<String> list1 = new ArrayList<>();
+        list1.add("1");
+        list1.add("2");
+        list1.add("3");
+
+        List<String> list2 = new ArrayList<>();
+        list2.add("a");
+        list2.add("b");
+        list2.add("c");
+        list2.add("d");
+        list2.add("e");
+
+        List<String> combined = combineTwoLists(list1, list2);
+        System.out.println(combined);
 
     }
 }
