@@ -78,6 +78,26 @@ public class ProblemSolving {
         return combined;
     }
 
+    ///////////////////////////////////////////
+    // Problem 3
+    private static List<Long> getFibonacciSeries(int n) {
+        List<Long> fibonacciSeries = new ArrayList<>();
+        fibonacciSeries.add(0L);
+        fibonacciSeries.add(1L);
+
+        long first = 0;
+        long second = 1;
+
+        for (int i = 1 ; i < n - 1 ; i++) {
+            long next = first + second;
+            first = second;
+            second = next;
+            fibonacciSeries.add(next);
+        }
+
+        return fibonacciSeries;
+    }
+
     public static void main(String[] args) {
 
         // Problem 1 execution
@@ -115,6 +135,10 @@ public class ProblemSolving {
 
         List<String> combined = combineTwoLists(list1, list2);
         System.out.println(combined);
+
+         // problem 3 execution
+        List<Long> fibonacciSeris = getFibonacciSeries(100);
+        System.out.println(fibonacciSeris);
 
     }
 }
